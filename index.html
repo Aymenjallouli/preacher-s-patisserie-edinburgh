@@ -1,0 +1,949 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Preacher's Patisserie, Scottish home bakery in Edinburgh</title>
+<meta name="description" content="Scottish home bakery, coffee shop and sandwich bar at 24-26 Lady Lawson St, Edinburgh. Scones, square sausage rolls, pies. Wed–Sat, 8 am–2 pm.">
+<meta property="og:title" content="Preacher's Patisserie, Scottish home bakery in Edinburgh">
+<meta property="og:description" content="Scones, square sausage, haggis rolls and hot pastries below the Castle. Wednesday to Saturday, 8 am–2 pm. 4.8 from 331 Google reviews.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#86a7d8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2386a7d8'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Georgia,serif' font-size='40' font-style='italic' fill='%23111b2e'%3Ep%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&family=Instrument+Sans:wght@400;600&display=swap">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Preacher's Patisserie",
+  "description": "Scottish home bakery, coffee shop and sandwich bar in Edinburgh.",
+  "image": "assets/photos/photo-02.jpg",
+  "telephone": "+447810898476",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "24-26 Lady Lawson St",
+    "addressLocality": "Edinburgh",
+    "postalCode": "EH3 9DS",
+    "addressCountry": "GB"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 55.9462571, "longitude": -3.2013604 },
+  "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJvQolGpnHh0gRh7S8z4HBowQ",
+  "servesCuisine": "Scottish",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["https://schema.org/Wednesday", "https://schema.org/Thursday", "https://schema.org/Friday", "https://schema.org/Saturday"], "opens": "08:00", "closes": "14:00" }
+  ],
+  "sameAs": ["https://www.facebook.com/PreachersPatisserie/", "https://www.instagram.com/preacherspatisserie/"]
+}
+</script>
+<style>
+/* ==========================================================================
+   DESIGN DECISIONS: Preacher's Patisserie, Lady Lawson St, Edinburgh
+   Direction: WARM ARTISAN. A Scottish home bakery with a painted shopfront
+   and scones on wire trays in the window. Warm paper and a hand-made feel,
+   kept precise so it doesn't look twee.
+   Palette, taken from the photos:
+     paper   #f5efe3 (flour-dusted counter and the cream walls inside)
+     ink     #1d2738 (the navy edge of the chalkboard menu)
+     brand   #86a7d8 (the powder-blue paint on the shopfront. This is the one
+             strong colour move: hero frame, contact field, theme-color)
+     accent  #b3362b (cherries in the cherry-almond scones), used sparingly
+   Type: Fraunces (soft optical serif, 500 + italic 400) for display; Instrument
+   Sans (400/600) for body and labels. The wordmark copies the window
+   lettering: lowercase "preacher's" over tracked caps "PATISSERIE".
+   Hero: a framed photo of the real shopfront inside a thick powder-blue
+   "window frame", with an oversized three-line headline and a rotating stamp.
+   Section rhythm: split hero → score + pull quote + snap rail → sticky-side
+   numbered counter list → signature "scones" word filled with the window photo
+   → offset collage (rail on mobile) → giant "8–2" hours + map split →
+   blue contact field → ink footer. No two sections share a layout.
+   ========================================================================== */
+:root{
+  --bg:#f5efe3; --surface:#ebe2d0; --paper:#fbf8f1;
+  --ink:#1d2738; --ink-soft:#4a5466;
+  --brand:#86a7d8; --brand-deep:#2d4f86; --brand-ink:#111b2e;
+  --accent:#b3362b; --line:rgba(29,39,56,.16);
+
+  --font-display:"Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --step--1:clamp(.875rem, .84rem + .15vw, .95rem);
+  --step-0:clamp(1.0625rem, 1rem + .25vw, 1.1875rem);
+  --step-1:clamp(1.25rem, 1.15rem + .45vw, 1.5rem);
+  --step-2:clamp(1.5rem, 1.3rem + 1vw, 2.125rem);
+  --step-3:clamp(1.9rem, 1.5rem + 2vw, 3.1rem);
+  --step-4:clamp(2.4rem, 1.7rem + 3.4vw, 4.75rem);
+  --step-5:clamp(3rem, 1.6rem + 7vw, 7.5rem);
+  --step-6:clamp(4.5rem, 1rem + 22vw, 17rem);
+
+  --space-1:.5rem; --space-2:1rem; --space-3:1.5rem; --space-4:2rem; --space-5:2.5rem;
+  --space-6:3rem; --space-7:4rem; --space-8:5rem; --space-9:6rem; --space-10:8rem;
+  --section:clamp(64px, 12vw, 160px);
+  --gutter:clamp(20px, 5vw, 48px);
+  --max:1280px;
+
+  --radius-s:4px; --radius-l:18px;
+
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease-in-out:cubic-bezier(.65,0,.35,1);
+  --dur-1:180ms; --dur-2:400ms; --dur-3:800ms;
+  --bar-h:0px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--font-body);font-size:var(--step-0);line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  padding-bottom:var(--bar-h);overflow-x:clip;
+}
+/* paper grain */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.07;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+p{margin:0;text-wrap:pretty}
+h1,h2,h3{margin:0;font-family:var(--font-display);font-weight:500;line-height:1;letter-spacing:-.02em;text-wrap:balance;font-optical-sizing:auto}
+em{font-style:italic;font-weight:400}
+ul,ol{margin:0;padding:0;list-style:none}
+::selection{background:var(--brand);color:var(--brand-ink)}
+:focus-visible{outline:2px solid var(--brand-deep);outline-offset:3px;border-radius:2px}
+svg.i{width:1.25em;height:1.25em;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+.skip{position:absolute;left:var(--gutter);top:-100px;z-index:200;background:var(--ink);color:var(--paper);padding:.75rem 1rem;border-radius:var(--radius-s)}
+.skip:focus{top:.75rem}
+
+.wrap{width:100%;max-width:calc(var(--max) + var(--gutter)*2);margin-inline:auto;padding-inline:var(--gutter)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:clamp(16px,2.5vw,24px)}
+@media (min-width:960px){.grid{grid-template-columns:repeat(12,minmax(0,1fr))}}
+
+.label{
+  font-family:var(--font-body);font-size:var(--step--1);font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-soft);display:flex;align-items:center;gap:.75rem;
+}
+.label::before{content:"";width:2rem;height:1px;background:currentColor;opacity:.6}
+
+.link{
+  color:var(--brand-deep);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.22em;
+  text-decoration-color:color-mix(in srgb, var(--brand-deep) 40%, transparent);
+  transition:text-decoration-color var(--dur-1) var(--ease-out);
+}
+@media (hover:hover){.link:hover{text-decoration-color:currentColor}}
+
+/* ---------- Buttons ---------- */
+.btn{
+  --b-bg:var(--ink);--b-fg:var(--paper);
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;
+  padding:.85rem 1.4rem;border-radius:999px;border:1px solid var(--b-bg);background:var(--b-bg);color:var(--b-fg);
+  font:600 var(--step--1)/1 var(--font-body);letter-spacing:.02em;text-decoration:none;overflow:hidden;isolation:isolate;
+  transition:transform var(--dur-1) var(--ease-out), color var(--dur-2) var(--ease-out);
+}
+.btn::after{
+  content:"";position:absolute;inset:0;z-index:-1;background:var(--accent);border-radius:inherit;
+  transform:translateY(101%);transition:transform var(--dur-2) var(--ease-out);
+}
+.btn--ghost{--b-bg:transparent;--b-fg:var(--ink);border-color:var(--ink)}
+.btn--ghost::after{background:var(--ink)}
+.btn .i{transition:transform var(--dur-2) var(--ease-out)}
+@media (hover:hover){
+  .btn:hover::after{transform:none}
+  .btn--ghost:hover{color:var(--paper)}
+  .btn:hover .i--arrow{transform:translateX(3px)}
+}
+.btn:active{transform:scale(.97)}
+
+/* ---------- Header ---------- */
+.header{
+  position:sticky;top:0;z-index:50;background:var(--bg);
+  border-bottom:1px solid transparent;transition:border-color var(--dur-2) var(--ease-out);
+}
+.header.is-scrolled{border-bottom-color:var(--line)}
+.header__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:68px;transition:height var(--dur-2) var(--ease-out)}
+.header.is-scrolled .header__in{height:56px}
+.wordmark{display:inline-flex;flex-direction:column;justify-content:center;min-height:48px;text-decoration:none;line-height:1;transform-origin:left center;transition:transform var(--dur-2) var(--ease-out)}
+.header.is-scrolled .wordmark{transform:scale(.88)}
+.wordmark b{font-family:var(--font-display);font-weight:500;font-size:1.6rem;letter-spacing:-.03em;color:var(--ink)}
+.wordmark span{font-size:.62rem;font-weight:600;letter-spacing:.52em;margin-top:.2rem;color:var(--ink-soft);padding-left:.1em}
+.nav{display:none}
+.nav a{text-decoration:none;font-size:var(--step--1);font-weight:600;position:relative;padding:.5rem 0}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:.3rem;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform var(--dur-2) var(--ease-out)}
+@media (hover:hover){.nav a:hover::after{transform:scaleX(1);transform-origin:left}}
+.header__cta{display:none}
+.menu-btn{
+  display:inline-flex;align-items:center;gap:.6rem;min-height:48px;padding:0 .25rem 0 1rem;border:0;background:none;color:var(--ink);
+  font:600 var(--step--1)/1 var(--font-body);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;
+}
+.menu-btn__bars{position:relative;width:26px;height:12px}
+.menu-btn__bars::before,.menu-btn__bars::after{content:"";position:absolute;left:0;right:0;height:1.6px;background:currentColor;transition:transform var(--dur-2) var(--ease-out), top var(--dur-2) var(--ease-out)}
+.menu-btn__bars::before{top:0}.menu-btn__bars::after{top:10px}
+.menu-btn[aria-expanded="true"] .menu-btn__bars::before{top:5px;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] .menu-btn__bars::after{top:5px;transform:rotate(-45deg)}
+
+.drawer{
+  position:fixed;inset:0;z-index:45;background:var(--bg);padding:calc(68px + var(--space-4)) var(--gutter) var(--space-6);
+  display:flex;flex-direction:column;justify-content:space-between;
+  visibility:hidden;opacity:0;transition:opacity var(--dur-2) var(--ease-out), visibility 0s linear var(--dur-2);
+}
+.drawer.is-open{visibility:visible;opacity:1;transition:opacity var(--dur-2) var(--ease-out)}
+.drawer ol{counter-reset:d}
+.drawer li{border-bottom:1px solid var(--line);overflow:hidden}
+.drawer li a{
+  display:flex;align-items:baseline;gap:1rem;padding:.9rem 0;text-decoration:none;
+  font-family:var(--font-display);font-size:var(--step-3);letter-spacing:-.02em;line-height:1.05;
+  transform:translateY(110%);transition:transform var(--dur-3) var(--ease-out);transition-delay:calc(var(--i)*70ms + 80ms);
+}
+.drawer li a::before{counter-increment:d;content:"0" counter(d);min-width:1.75rem;font:600 var(--step--1)/1 var(--font-body);color:var(--ink-soft);letter-spacing:.1em}
+.drawer.is-open li a{transform:none}
+.drawer__tel{display:inline-flex;align-items:center;min-height:44px}
+.score>.link{display:inline-flex;align-items:center;min-height:44px;justify-self:start}
+.drawer__foot{display:grid;gap:.4rem;color:var(--ink-soft);font-size:var(--step--1)}
+body.is-locked{overflow:hidden}
+
+@media (min-width:960px){
+  .menu-btn,.drawer{display:none}
+  .nav{display:flex;gap:2rem}
+  .header__cta{display:inline-flex;min-height:44px;padding:.6rem 1.1rem}
+}
+
+/* ---------- Hero ---------- */
+.hero{padding-top:clamp(20px,4vw,56px);padding-bottom:var(--section)}
+@media (min-width:960px){.hero{padding-bottom:var(--space-9)}}
+.hero .grid{row-gap:var(--space-3);align-items:end}
+.hero__copy{grid-column:1/-1;container-type:inline-size}
+.eyebrow{display:flex;flex-wrap:wrap;gap:.3rem .9rem;font-size:var(--step--1);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:var(--space-3)}
+.eyebrow{flex-direction:column}
+@media (min-width:640px){.eyebrow{flex-direction:row}}
+.eyebrow span+span::before{content:"";display:none;width:5px;height:5px;border-radius:50%;background:var(--accent);margin-right:.9rem;vertical-align:middle;transform:translateY(-1px)}
+.hero h1{font-size:var(--step-5);line-height:.92;letter-spacing:-.03em}
+@supports (font-size:1cqi){.hero h1{font-size:min(8.25rem, 16.5cqi)}}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.hero h1 .ln>span{display:block}
+.hero h1 em{color:var(--brand-deep)}
+.hero__meta{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.1rem;margin-top:var(--space-4)}
+.rating{display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;font-weight:600;min-height:44px}
+.rating .stars{color:var(--accent)}
+.rating u{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.22em;text-decoration-color:var(--line);font-weight:400;color:var(--ink-soft)}
+.stars{display:inline-flex;gap:1px}
+.stars svg{width:1rem;height:1rem;fill:currentColor}
+.status{
+  display:inline-flex;align-items:center;gap:.55rem;padding:.45rem .85rem .45rem .7rem;border-radius:999px;
+  background:var(--paper);border:1px solid var(--line);font-size:var(--step--1);font-weight:600;white-space:nowrap;
+}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink-soft)}
+.status.is-open::before{background:#2f7d4f;box-shadow:0 0 0 0 rgba(47,125,79,.5);animation:pulse 2.4s var(--ease-out) infinite}
+.status.is-closed::before{background:var(--accent)}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(47,125,79,0)}100%{box-shadow:0 0 0 0 rgba(47,125,79,0)}}
+
+.hero__media{grid-column:1/-1;position:relative;margin-top:var(--space-2)}
+.frame{
+  position:relative;background:var(--brand);padding:clamp(10px,1.6vw,18px);border-radius:var(--radius-s);
+  box-shadow:inset 0 0 0 1px rgba(17,27,46,.12);
+}
+.frame__win{position:relative;overflow:hidden;aspect-ratio:4/5;border-radius:2px;box-shadow:0 0 0 1px rgba(17,27,46,.18)}
+.frame__zoom{position:absolute;inset:0}
+.frame__win img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.hero__caption{display:flex;justify-content:space-between;gap:1rem;margin-top:.75rem;font-size:var(--step--1);color:var(--ink-soft)}
+.hero__caption b{font-weight:600;color:var(--ink)}
+.stamp{
+  position:absolute;right:-6px;top:-34px;width:108px;height:108px;border-radius:50%;
+  background:var(--accent);color:var(--paper);display:grid;place-items:center;z-index:2;overflow:hidden;
+}
+.stamp svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 28s linear infinite}
+.stamp text{font:600 9px var(--font-body);letter-spacing:.14em;text-transform:uppercase;fill:currentColor}
+.stamp b{font-family:var(--font-display);font-style:italic;font-weight:400;font-size:2rem;line-height:1}
+@keyframes spin{to{transform:rotate(1turn)}}
+.hero__more{grid-column:1/-1;display:grid;gap:var(--space-4);margin-top:var(--space-3)}
+.lede{font-size:var(--step-1);line-height:1.45;max-width:34ch;color:var(--ink)}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem}
+
+@media (min-width:640px){
+  .eyebrow span+span::before{display:inline-block}
+  .stamp{width:128px;height:128px;right:-18px;top:-40px}
+}
+@media (min-width:960px){
+  .hero .grid{grid-template-rows:auto auto}
+  .hero__copy{grid-column:1/9;grid-row:1;position:relative;z-index:3;padding-top:var(--space-6)}
+  .hero__media{grid-column:8/13;grid-row:1/3;margin-top:0}
+  .hero__more{grid-column:1/7;grid-row:2;align-self:start;margin-top:var(--space-4)}
+  .frame__win{aspect-ratio:4/5.4}
+}
+
+/* ---------- Section scaffolding ---------- */
+.section{padding-block:var(--section);position:relative}
+.section__head{display:grid;gap:var(--space-3);margin-bottom:var(--space-7)}
+.h2{font-size:var(--step-4);line-height:.98}
+.h2 em{color:var(--brand-deep)}
+
+/* ---------- Proof ---------- */
+.proof{background:var(--paper);border-block:1px solid var(--line)}
+.proof .grid{row-gap:var(--space-6)}
+.score{grid-column:1/-1;display:grid;gap:var(--space-3);align-content:start}
+.score .score__num{color:var(--ink);font-family:var(--font-display);font-size:clamp(6rem, 3rem + 16vw, 12rem);line-height:.8;letter-spacing:-.05em;font-weight:500}
+.score__num small{font-size:.3em;letter-spacing:0;color:var(--ink-soft);font-style:italic;font-weight:400;margin-left:.1em}
+.score .stars{color:var(--accent)}
+.score .stars svg{width:1.4rem;height:1.4rem}
+.score p{color:var(--ink-soft);max-width:30ch}
+.pull{grid-column:1/-1;margin:0;position:relative}
+.pull blockquote{margin:0;font-family:var(--font-display);font-size:clamp(1.75rem, 1.3rem + 2.2vw, 3.1rem);line-height:1.12;letter-spacing:-.02em;text-wrap:balance}
+.pull blockquote::before{
+  content:"“";display:block;font-size:3.2em;line-height:.6;height:.42em;color:var(--brand);font-style:italic;
+}
+.pull figcaption,.card figcaption{display:flex;align-items:center;gap:.8rem;margin-top:var(--space-3);font-size:var(--step--1);font-weight:600}
+.pull figcaption .stars,.card .stars{color:var(--accent)}
+.pull figcaption span:last-child,.card figcaption span:last-child{font-weight:400;color:var(--ink-soft)}
+
+.rail{
+  display:grid;grid-auto-flow:column;grid-auto-columns:min(82%, 340px);gap:var(--space-2);
+  overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;
+  padding:var(--space-1) var(--gutter) var(--space-3);margin-inline:calc(var(--gutter)*-1);
+  scroll-padding-inline:var(--gutter);scrollbar-width:none;
+}
+.rail::-webkit-scrollbar{display:none}
+.rail>*{scroll-snap-align:start}
+.reviews-rail{margin-top:var(--space-2);grid-column:1/-1}
+.card{
+  margin:0;padding:var(--space-4) var(--space-3);background:var(--bg);border:1px solid var(--line);border-radius:var(--radius-s);
+  display:flex;flex-direction:column;justify-content:space-between;gap:var(--space-3);
+}
+.card blockquote{margin:0;font-size:var(--step-0);line-height:1.55}
+.card figcaption{margin-top:0;padding-top:var(--space-2);border-top:1px solid var(--line)}
+.rail-hint{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:calc(var(--space-6)*-1 + var(--space-1));font-size:var(--step--1);color:var(--ink-soft)}
+@media (min-width:960px){
+  .score{grid-column:1/5;position:sticky;top:96px}
+  .pull{grid-column:6/13}
+  .reviews-rail{grid-auto-flow:row;grid-template-columns:repeat(2,1fr);overflow:visible;margin-inline:0;padding:0;gap:var(--space-4);grid-column:6/13;margin-top:var(--space-6)}
+  .reviews-rail .card:nth-child(even){transform:translateY(var(--space-7))}
+  .proof{padding-bottom:calc(var(--section) + var(--space-7))}
+  .rail-hint{display:none}
+}
+
+/* ---------- The counter (sticky side + numbered list) ---------- */
+.counter .grid{row-gap:var(--space-6)}
+.counter__side{grid-column:1/-1;display:grid;gap:var(--space-4);align-content:start}
+.counter__side p{color:var(--ink-soft);max-width:40ch}
+.counter__photo{overflow:hidden;border-radius:var(--radius-l);aspect-ratio:4/3}
+.counter__photo img{width:100%;height:100%;object-fit:cover;object-position:50% 80%}
+.menu{grid-column:1/-1;counter-reset:m;border-top:1px solid var(--ink)}
+.menu li{display:grid;grid-template-columns:auto 1fr;column-gap:var(--space-3);padding:var(--space-4) 0;border-bottom:1px solid var(--line)}
+.menu li::before{
+  counter-increment:m;content:counter(m, decimal-leading-zero);grid-row:1/3;
+  font-family:var(--font-display);font-style:italic;font-weight:400;font-size:var(--step-2);line-height:1;color:var(--accent);min-width:2.2ch;
+}
+.menu h3{font-size:var(--step-3);line-height:1;margin-bottom:.6rem}
+.menu p{color:var(--ink-soft);max-width:52ch}
+.menu .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:var(--space-2)}
+.menu .tags span{font-size:.8rem;font-weight:600;letter-spacing:.06em;padding:.3rem .65rem;border:1px solid var(--line);border-radius:999px;color:var(--ink)}
+.counter__note{grid-column:1/-1;display:flex;gap:var(--space-2);align-items:flex-start;padding:var(--space-3);background:var(--surface);border-radius:var(--radius-s)}
+.counter__note .i{color:var(--brand-deep);margin-top:.2rem}
+@media (min-width:960px){
+  .counter__side{grid-column:1/6;position:sticky;top:96px}
+  .counter__photo{aspect-ratio:4/4.6}
+  .menu{grid-column:7/13}
+  .menu li{padding:var(--space-5) 0}
+  .counter__note{grid-column:7/13}
+}
+@media (min-width:960px){.counter .grid{align-items:start}}
+
+/* ---------- Signature: "scones" ---------- */
+.sig{background:var(--surface);padding-block:clamp(56px,9vw,120px);overflow:hidden;border-block:1px solid var(--line)}
+.sig__word{
+  font-family:var(--font-display);font-weight:500;font-size:clamp(7rem, 41vw, 34rem);line-height:.8;letter-spacing:-.07em;
+  margin:-.24em 0 0 -.04em;color:var(--ink);white-space:nowrap;
+}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .sig__word{
+    background:url("assets/photos/photo-03.jpg") 62% 52%/150% auto var(--ink);
+    -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  }
+}
+.sig .grid{row-gap:var(--space-4);margin-top:var(--space-4)}
+.sig__count{grid-column:1/3;font-family:var(--font-display);font-size:var(--step-4);line-height:.9;letter-spacing:-.03em}
+.sig__count small{display:block;font:600 var(--step--1)/1.4 var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:.5rem}
+.sig__count--b{grid-column:3/5}
+.sig__count--b span{color:var(--accent)}
+.sig__text{grid-column:1/-1;font-size:var(--step-1);line-height:1.45;max-width:36ch}
+@media (min-width:960px){
+  .sig__count{grid-column:1/4}.sig__count--b{grid-column:4/7}
+  .sig__text{grid-column:8/13;align-self:end}
+}
+
+/* ---------- Gallery ---------- */
+.gallery .section__head{grid-template-columns:1fr}
+.shots{counter-reset:s}
+.shot{margin:0}
+.shot__img{overflow:hidden;border-radius:var(--radius-l);aspect-ratio:3/4;background:var(--surface)}
+.shot__img img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur-3) var(--ease-out)}
+.shot figcaption{display:flex;gap:.6rem;margin-top:.7rem;font-size:var(--step--1);color:var(--ink-soft)}
+.shot figcaption::before{counter-increment:s;content:counter(s, decimal-leading-zero);font-weight:600;color:var(--ink)}
+@media (hover:hover){.shot:hover .shot__img img{transform:scale(1.03)}}
+@media (max-width:959.98px){
+  .shots{grid-auto-columns:min(72%, 300px)}
+}
+@media (min-width:960px){
+  .shots{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:var(--space-7);overflow:visible;margin:0;padding:0}
+  .shot:nth-child(-n+3){grid-row:1}
+  .shot:nth-child(n+4){grid-row:2}
+  .shot:nth-child(1){grid-column:1/6}
+  .shot:nth-child(1) .shot__img{aspect-ratio:4/5}
+  .shot:nth-child(2){grid-column:7/11;margin-top:var(--space-10)}
+  .shot:nth-child(3){grid-column:11/13;align-self:end}
+  .shot:nth-child(3) .shot__img{aspect-ratio:9/16}
+  .shot:nth-child(4){grid-column:1/4;align-self:start}
+  .shot:nth-child(5){grid-column:5/10;align-self:center}
+  .shot:nth-child(5) .shot__img{aspect-ratio:4/3}
+  .shot:nth-child(6){grid-column:10/13;margin-top:var(--space-10)}
+}
+
+/* ---------- Visit: hours + map ---------- */
+.visit{background:var(--ink);color:var(--paper)}
+.visit .label{color:rgba(251,248,241,.72)}
+.visit .grid{row-gap:var(--space-7)}
+.visit__time{grid-column:1/-1}
+.big-hours{font-family:var(--font-display);font-size:clamp(6rem, 2rem + 24vw, 15rem);line-height:.8;letter-spacing:-.06em;margin:var(--space-4) 0 var(--space-3)}
+.big-hours em{color:var(--brand)}
+.visit__sub{font-size:var(--step-2);font-family:var(--font-display);line-height:1.1;margin-bottom:var(--space-4)}
+.visit .status{background:transparent;border-color:rgba(251,248,241,.3);color:var(--paper)}
+.visit .status::before{background:rgba(251,248,241,.6)}
+.visit .status.is-open::before{background:#6fd39a}
+.visit .status.is-closed::before{background:#f08c80}
+.hours{width:100%;max-width:440px;border-collapse:collapse;margin-top:var(--space-5);font-variant-numeric:tabular-nums}
+.hours th,.hours td{padding:.8rem 0;border-bottom:1px solid rgba(251,248,241,.16);text-align:left;font-weight:400}
+.hours td{text-align:right;color:rgba(251,248,241,.8)}
+.hours tr.is-closed td{color:rgba(251,248,241,.55)}
+.hours tr.is-today th,.hours tr.is-today td{color:var(--paper);font-weight:600}
+.hours tr.is-today th::after{content:"Today";margin-left:.6rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .5rem;border-radius:999px;background:var(--brand);color:var(--brand-ink);vertical-align:2px}
+.visit__tip{margin-top:var(--space-4);max-width:44ch;color:rgba(251,248,241,.78);font-size:var(--step--1)}
+.visit__place{grid-column:1/-1;display:grid;gap:var(--space-4);align-content:start}
+.map{position:relative;border-radius:var(--radius-l);overflow:hidden;aspect-ratio:4/4.2;background:#2a3549}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.35) contrast(1.05)}
+.map__fallback{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:var(--space-3);color:var(--paper);font-size:var(--step--1)}
+.address{font-family:var(--font-display);font-size:var(--step-2);line-height:1.15}
+.place-notes{display:grid;gap:var(--space-2);color:rgba(251,248,241,.8);font-size:var(--step--1)}
+.place-notes li{display:flex;gap:.8rem;align-items:flex-start;padding-top:var(--space-2);border-top:1px solid rgba(251,248,241,.14)}
+.place-notes .i{color:var(--brand);margin-top:.15rem}
+.visit .link{color:var(--paper);text-decoration-color:rgba(251,248,241,.4)}
+.visit .btn{--b-bg:var(--brand);--b-fg:var(--brand-ink)}
+.visit .btn::after{background:var(--paper)}
+.visit .btn--ghost{--b-bg:transparent;--b-fg:var(--paper);border-color:rgba(251,248,241,.5)}
+.visit .btn--ghost::after{background:var(--paper)}
+@media (hover:hover){.visit .btn--ghost:hover{color:var(--ink)}}
+@media (min-width:960px){
+  .visit__time{grid-column:1/7}
+  .visit__place{grid-column:8/13;padding-top:var(--space-6)}
+  .map{aspect-ratio:4/4.4}
+}
+
+/* ---------- Contact ---------- */
+.contact{background:var(--brand);color:var(--brand-ink)}
+.contact .label{color:var(--brand-ink)}
+.contact .grid{row-gap:var(--space-5);align-items:end}
+.contact__head{grid-column:1/-1}
+.contact h2{font-size:var(--step-5);line-height:.92;letter-spacing:-.025em;margin-top:var(--space-3)}
+.phone-big{
+  display:inline-block;margin-top:var(--space-4);font-family:var(--font-display);font-size:var(--step-3);letter-spacing:-.02em;
+  text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1.5px no-repeat;
+  transition:background-size var(--dur-3) var(--ease-out);white-space:nowrap;
+}
+@media (hover:hover){.phone-big:hover{background-size:100% 1.5px}}
+.contact__actions{grid-column:1/-1;display:grid;gap:.75rem}
+.contact .btn{--b-bg:var(--brand-ink);--b-fg:var(--paper);width:100%;justify-content:space-between;padding-inline:1.4rem}
+.contact .btn::after{background:var(--accent)}
+.contact .btn--ghost{--b-bg:transparent;--b-fg:var(--brand-ink);border-color:var(--brand-ink)}
+.contact .btn--ghost::after{background:var(--brand-ink)}
+.contact__small{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;padding-top:var(--space-4);border-top:1px solid rgba(17,27,46,.25);font-size:var(--step--1)}
+.social{display:flex;gap:.5rem}
+.social a{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1px solid rgba(17,27,46,.35);transition:background-color var(--dur-1) var(--ease-out), color var(--dur-1) var(--ease-out)}
+@media (hover:hover){.social a:hover{background:var(--brand-ink);color:var(--brand)}}
+@media (min-width:960px){
+  .contact__head{grid-column:1/8}
+  .contact__actions{grid-column:9/13}
+}
+
+/* ---------- Footer ---------- */
+.footer{background:var(--brand-ink);color:rgba(251,248,241,.78);padding-block:var(--space-8) var(--space-6);font-size:var(--step--1)}
+.footer .grid{row-gap:var(--space-5)}
+.footer .wordmark b{color:var(--paper);font-size:2.4rem}
+.footer .wordmark{display:inline-flex;min-height:0}
+.footer .wordmark span{color:rgba(251,248,241,.72)}
+.footer__brand{grid-column:1/-1}
+.footer__col{grid-column:span 2;display:grid;gap:.35rem;align-content:start}
+.footer__col h3{font:600 .75rem/1.4 var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:rgba(251,248,241,.55);margin-bottom:.4rem}
+.footer a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.footer__col span{min-height:44px;display:flex;align-items:center}
+.footer__col{gap:0}
+@media (hover:hover){.footer a:hover{color:var(--paper)}}
+.footer__base{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem;padding-top:var(--space-4);border-top:1px solid rgba(251,248,241,.14);color:rgba(251,248,241,.55)}
+@media (min-width:960px){
+  .footer__brand{grid-column:1/6}
+  .footer__col{grid-column:span 2}
+  .footer__col:nth-of-type(2){grid-column:7/9}
+}
+
+/* ---------- Sticky mobile action bar ---------- */
+.bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(251,248,241,.14);padding-bottom:env(safe-area-inset-bottom);background-color:var(--brand-ink);
+  border-top:1px solid rgba(251,248,241,.12);
+}
+.bar a{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem;min-height:60px;
+  background:var(--brand-ink);color:var(--paper);text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:.04em;
+  transition:background-color var(--dur-1) var(--ease-out);
+}
+.bar a:first-child{background:var(--brand);color:var(--brand-ink)}
+.bar a:active{background:#24304a}
+.bar a:first-child:active{background:#a3bde3}
+@media (max-width:767.98px){:root{--bar-h:calc(61px + env(safe-area-inset-bottom))}}
+@media (min-width:768px){.bar{display:none}}
+
+/* ---------- Motion (JS-enhanced only) ---------- */
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity var(--dur-3) var(--ease-out), transform var(--dur-3) var(--ease-out);transition-delay:calc(var(--i, 0) * 80ms)}
+.js .reveal.is-in{opacity:1;transform:none}
+.js .header{animation:fade var(--dur-2) var(--ease-out) both}
+.js .hero h1 .ln>span{transform:translateY(105%);animation:rise var(--dur-3) var(--ease-out) forwards;animation-delay:calc(150ms + var(--i)*80ms)}
+.js .hero .eyebrow,.js .hero__meta,.js .hero__more{animation:fadeUp var(--dur-3) var(--ease-out) both;animation-delay:520ms}
+.js .frame{animation:unclip 1s var(--ease-in-out) both;animation-delay:250ms}
+.js .frame__zoom{animation:settle 1.4s var(--ease-out) both;animation-delay:250ms}
+.js .stamp{animation:pop var(--dur-3) var(--ease-out) both;animation-delay:900ms}
+@keyframes fade{from{opacity:0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}}
+@keyframes rise{to{transform:none}}
+@keyframes unclip{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes settle{from{transform:scale(1.1)}}
+@keyframes pop{from{opacity:0;transform:scale(.6) rotate(-30deg)}}
+@supports (animation-timeline:view()){
+  .frame__win img{animation:drift linear both;animation-timeline:view();animation-range:exit 0% exit 100%}
+  @keyframes drift{to{transform:scale(1.08) translateY(4%)}}
+  .sig__word{animation:slide linear both;animation-timeline:view();animation-range:entry 0% exit 100%}
+  @keyframes slide{from{transform:translateX(3%)}to{transform:translateX(-5%)}}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .js .reveal{opacity:1;transform:none}
+  .js .hero h1 .ln>span{transform:none}
+  .drawer li a{transform:none}
+}
+</style>
+<!--sf:preview--><meta name="robots" content="noindex, nofollow"><!--/sf:preview-->
+<!--sf:og--><meta property="og:image" content="https://preacher-s-patisserie-edinburgh.aymenjallouli.dev/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://preacher-s-patisserie-edinburgh.aymenjallouli.dev/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://preacher-s-patisserie-edinburgh.aymenjallouli.dev/og.jpg"><!--/sf:og-->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="star" viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></symbol>
+  </defs>
+</svg>
+
+<header class="header" id="top">
+  <div class="wrap header__in">
+    <a class="wordmark" href="#top" aria-label="Preacher's Patisserie, back to top"><b>preacher's</b><span>PATISSERIE</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#reviews">Reviews</a>
+      <a href="#counter">The counter</a>
+      <a href="#window">The window</a>
+      <a href="#visit">Hours &amp; map</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn header__cta" href="tel:+447810898476"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.5l1.6 4.2-2.2 1.5a11 11 0 0 0 6.4 6.4l1.5-2.2L20 15.5V19a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4z"/></svg>07810 898476</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="drawer">Menu <span class="menu-btn__bars" aria-hidden="true"></span></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-label="Site menu">
+  <ol>
+    <li><a href="#reviews" style="--i:0">Reviews</a></li>
+    <li><a href="#counter" style="--i:1">The counter</a></li>
+    <li><a href="#window" style="--i:2">The window</a></li>
+    <li><a href="#visit" style="--i:3">Hours &amp; map</a></li>
+    <li><a href="#contact" style="--i:4">Contact</a></li>
+  </ol>
+  <div class="drawer__foot">
+    <span>24-26 Lady Lawson St, Edinburgh EH3 9DS</span>
+    <a class="link drawer__tel" href="tel:+447810898476">07810 898476</a>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap grid">
+    <div class="hero__copy">
+      <p class="eyebrow"><span>Scottish home baking</span><span>Lady Lawson St, Edinburgh</span></p>
+      <h1 id="hero-title">
+        <span class="ln"><span style="--i:0">Warm scones</span></span>
+        <span class="ln"><span style="--i:1">under the</span></span>
+        <span class="ln"><span style="--i:2"><em>Castle.</em></span></span>
+      </h1>
+      <div class="hero__meta">
+        <a class="rating" href="https://www.google.com/maps/place/?q=place_id:ChIJvQolGpnHh0gRh7S8z4HBowQ" target="_blank" rel="noopener">
+          <span class="stars" aria-hidden="true"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span>
+          4.8 <u>331 Google reviews</u>
+        </a>
+        <span class="status" data-status role="status">Wed–Sat, 8 am–2 pm</span>
+      </div>
+    </div>
+
+    <div class="hero__media">
+      <div class="frame">
+        <div class="frame__win">
+          <div class="frame__zoom">
+            <img src="assets/photos/photo-02.jpg" width="1200" height="1600" fetchpriority="high"
+                 alt="The powder-blue shopfront of Preacher's Patisserie at 24-26 Lady Lawson Street, with trays of scones in the window under the sign Home Bakery, Coffee Shop, Sandwich Bar">
+          </div>
+        </div>
+      </div>
+      <div class="stamp" aria-hidden="true">
+        <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs><text><textPath href="#circ" textLength="272" lengthAdjust="spacing">Home bakery · Coffee shop · Sandwich bar ·</textPath></text></svg>
+        <b>p</b>
+      </div>
+      <p class="hero__caption"><b>24–26 Lady Lawson St</b><span>Off the Grassmarket</span></p>
+    </div>
+
+    <div class="hero__more">
+      <p class="lede">A home bakery, coffee shop and sandwich bar a short walk from the Grassmarket. Square sausage and haggis rolls from 8, scones by the tray, doors shut at 2.</p>
+      <div class="actions">
+        <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Preacher's%20Patisserie%2C%2024-26%20Lady%20Lawson%20St%2C%20Edinburgh%2C%20EH3%209DS" target="_blank" rel="noopener">Get directions <svg class="i i--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--ghost" href="tel:+447810898476"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.5l1.6 4.2-2.2 1.5a11 11 0 0 0 6.4 6.4l1.5-2.2L20 15.5V19a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4z"/></svg>Call the shop</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="section proof" id="reviews" aria-labelledby="reviews-title">
+  <div class="wrap grid">
+    <div class="score reveal">
+      <p class="label" id="reviews-title">On Google</p>
+      <p class="score__num">4.8<small>/5</small></p>
+      <span class="stars" aria-label="Rated 4.8 out of 5"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span>
+      <p>From 331 reviews. Plenty of them come from visitors who came back a second time on the same trip.</p>
+      <a class="link" href="https://www.google.com/maps/place/?q=place_id:ChIJvQolGpnHh0gRh7S8z4HBowQ" target="_blank" rel="noopener">Read all 331 reviews on Google</a>
+    </div>
+
+    <figure class="pull reveal" style="--i:1">
+      <blockquote>12/10. So happy we found this gem. … The scones were fresh out and were warm, soft, and moist.</blockquote>
+      <figcaption><span class="stars" aria-label="5 out of 5"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span><span>Krista B.</span><span>Google review</span></figcaption>
+    </figure>
+
+    <div class="rail reviews-rail" role="list" aria-label="More Google reviews">
+      <figure class="card reveal" role="listitem" style="--i:0">
+        <blockquote>“Skip being basic and have a proper Scottish breakfast at Preacher’s Patisserie just off Grassmarket… We had the Gaz breakfast roll and the Scottish sampler plate - simple and very brown, but authentically Scottish and very comforting.”</blockquote>
+        <figcaption><span class="stars" aria-label="5 out of 5"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span><span>Pia A.</span></figcaption>
+      </figure>
+      <figure class="card reveal" role="listitem" style="--i:1">
+        <blockquote>“Traditional house baked Scottish pastys plus fun twists with the weekly specials - easy walk from Grassmarket and close to the castle…”</blockquote>
+        <figcaption><span class="stars" aria-label="5 out of 5"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span><span>Rene R.</span></figcaption>
+      </figure>
+      <figure class="card reveal" role="listitem" style="--i:2">
+        <blockquote>“My wife had the buffalo chicken toastie. It came out piping hot with oozy cheese. Just a hint of heat and packed with chicken. … We also had two cappuccinos and split a fruit scone with butter and jam.”</blockquote>
+        <figcaption><span class="stars" aria-label="5 out of 5"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span><span>charles R.</span></figcaption>
+      </figure>
+      <figure class="card reveal" role="listitem" style="--i:3">
+        <blockquote>“We had a lovely breakfast here when we arrived in town after a long flight. The customer service was warm and kind. The coffee, hot chocolate and Holy Trinity were delicious.”</blockquote>
+        <figcaption><span class="stars" aria-label="5 out of 5"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span><span>Jessica M.</span></figcaption>
+      </figure>
+    </div>
+    <p class="rail-hint" style="grid-column:1/-1"><span>Swipe for more</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></p>
+  </div>
+</section>
+
+<!-- THE COUNTER -->
+<section class="section counter" id="counter" aria-labelledby="counter-title">
+  <div class="wrap grid">
+    <div class="counter__side">
+      <p class="label">The counter</p>
+      <h2 class="h2 reveal" id="counter-title">Square sausage, haggis &amp; a <em>proper</em> scone.</h2>
+      <p class="reveal">Scottish home baking in the window, a sandwich bar for lunch and breakfast rolls all day. Come early for the best of the trays.</p>
+      <div class="counter__photo reveal">
+        <img src="assets/photos/photo-09.jpg" width="1200" height="1600" loading="lazy" decoding="async" alt="A breakfast roll stacked with black pudding, bacon and a fried egg, with mugs of coffee behind">
+      </div>
+    </div>
+
+    <ol class="menu">
+      <li class="reveal">
+        <div>
+          <h3>Scones</h3>
+          <p>Straight from the oven onto trays in the window. Have a fruit scone with butter and jam if you're staying.</p>
+          <div class="tags"><span>Fruit</span><span>Cheese</span><span>Cherry almond</span></div>
+        </div>
+      </li>
+      <li class="reveal">
+        <div>
+          <h3>Breakfast rolls</h3>
+          <p>All-day breakfast baps with square sausage, haggis and black pudding on the softest roll. Reviewers order the house rolls by name.</p>
+          <div class="tags"><span>Holy Trinity</span><span>The Gaz</span><span>Scottish sampler plate</span></div>
+        </div>
+      </li>
+      <li class="reveal">
+        <div>
+          <h3>Hot pastries</h3>
+          <p>Flaky sausage rolls, Scotch pies and traditional pasties, all baked in the house.</p>
+          <div class="tags"><span>Sausage roll</span><span>Scotch pie</span></div>
+        </div>
+      </li>
+      <li class="reveal">
+        <div>
+          <h3>Lunch</h3>
+          <p>Filled rolls, baguettes and toasties that come out piping hot, plus weekly specials with a twist.</p>
+          <div class="tags"><span>Buffalo chicken toastie</span><span>Egg salad baguette</span></div>
+        </div>
+      </li>
+      <li class="reveal">
+        <div>
+          <h3>Coffee &amp; hot chocolate</h3>
+          <p>Cappuccinos with a heart in the foam, and a hot chocolate reviewers call delicious.</p>
+        </div>
+      </li>
+    </ol>
+
+    <p class="counter__note reveal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4-3-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-3 8-7 11z"/><path d="M12 7v7M9 10.5h6"/></svg><span>Vegan options come up in 14 reviews: vegan sausage and vegan haggis rolls are on the board as well.</span></p>
+  </div>
+</section>
+
+<!-- SIGNATURE -->
+<section class="sig" aria-label="The scones">
+  <div class="wrap">
+    <p class="sig__word" aria-hidden="true">scones</p>
+    <div class="grid">
+      <p class="sig__count reveal">39<small>Google reviews mention the scones</small></p>
+      <p class="sig__count sig__count--b reveal" style="--i:1"><span>9</span><small>name the cherry almond</small></p>
+      <p class="sig__text reveal" style="--i:2">That's more than anything else on the counter. One visitor wrote that they were “fresh out and were warm, soft, and moist”.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section gallery" id="window" aria-labelledby="window-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="label">The window</p>
+      <h2 class="h2 reveal" id="window-title">Wire trays, wicker baskets, <em>blue paint.</em></h2>
+    </div>
+    <div class="rail shots">
+      <figure class="shot reveal">
+        <div class="shot__img"><img src="assets/photos/photo-07.jpg" width="1200" height="1600" loading="lazy" decoding="async" alt="The shop window from the street: cherry scones, croissants and rolls in wicker baskets behind powder-blue window frames"></div>
+        <figcaption>The window on Lady Lawson Street</figcaption>
+      </figure>
+      <figure class="shot reveal" style="--i:1">
+        <div class="shot__img"><img src="assets/photos/photo-08.jpg" width="1200" height="1600" loading="lazy" decoding="async" style="object-position:50% 40%" alt="A member of staff bringing a fresh tray of scones to the counter while a young customer looks into the cake display"></div>
+        <figcaption>A fresh tray reaches the counter</figcaption>
+      </figure>
+      <figure class="shot reveal" style="--i:2">
+        <div class="shot__img"><img src="assets/photos/photo-11.jpg" width="739" height="1600" loading="lazy" decoding="async" style="object-position:50% 45%" alt="A cappuccino with a heart in the foam on a grey-blue saucer, seen from above on a wooden table"></div>
+        <figcaption>Heart on top</figcaption>
+      </figure>
+      <figure class="shot reveal">
+        <div class="shot__img"><img src="assets/photos/photo-05.jpg" width="1200" height="1600" loading="lazy" decoding="async" style="object-position:50% 40%" alt="A golden sausage roll in a paper bag held up in the rain, with Edinburgh Castle on its rock behind"></div>
+        <figcaption>Sausage roll, Castle view</figcaption>
+      </figure>
+      <figure class="shot reveal" style="--i:1">
+        <div class="shot__img"><img src="assets/photos/photo-03.jpg" width="1200" height="1600" loading="lazy" decoding="async" style="object-position:50% 58%" alt="Trays of scones dusted with flour on wooden shelves in the shop window, above two wicker baskets"></div>
+        <figcaption>Morning trays, wooden shelves</figcaption>
+      </figure>
+      <figure class="shot reveal">
+        <div class="shot__img"><img src="assets/photos/photo-01.jpg" width="1200" height="1600" loading="lazy" decoding="async" style="object-position:50% 55%" alt="A bacon and egg roll in a brown paper bag held over a wet Edinburgh pavement"></div>
+        <figcaption>Wet pavement, warm roll</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="section visit" id="visit" aria-labelledby="visit-title">
+  <div class="wrap grid">
+    <div class="visit__time">
+      <p class="label" id="visit-title">Hours</p>
+      <p class="big-hours reveal" aria-label="8 am to 2 pm">8<em>–</em>2</p>
+      <p class="visit__sub reveal">Wednesday to Saturday.<br>Closed Sunday to Tuesday.</p>
+      <span class="status" data-status role="status">Wed–Sat, 8 am–2 pm</span>
+      <table class="hours" aria-label="Opening hours">
+        <tbody>
+          <tr data-day="monday"><th scope="row">Monday</th><td>Closed</td></tr>
+          <tr data-day="tuesday"><th scope="row">Tuesday</th><td>Closed</td></tr>
+          <tr data-day="wednesday"><th scope="row">Wednesday</th><td>8 am–2 pm</td></tr>
+          <tr data-day="thursday"><th scope="row">Thursday</th><td>8 am–2 pm</td></tr>
+          <tr data-day="friday"><th scope="row">Friday</th><td>8 am–2 pm</td></tr>
+          <tr data-day="saturday"><th scope="row">Saturday</th><td>8 am–2 pm</td></tr>
+          <tr data-day="sunday"><th scope="row">Sunday</th><td>Closed</td></tr>
+        </tbody>
+      </table>
+      <p class="visit__tip">The window trays empty as the morning goes on. Earlier is better.</p>
+    </div>
+
+    <div class="visit__place">
+      <p class="address reveal">24-26 Lady Lawson St,<br>Edinburgh EH3 9DS</p>
+      <div class="map reveal">
+        <a class="map__fallback link" href="https://www.google.com/maps/place/?q=place_id:ChIJvQolGpnHh0gRh7S8z4HBowQ" target="_blank" rel="noopener">Open the map in Google Maps</a>
+        <iframe src="https://www.google.com/maps?q=Preacher's%20Patisserie%2C%2024-26%20Lady%20Lawson%20St%2C%20Edinburgh%2C%20EH3%209DS&amp;output=embed" title="Map showing Preacher's Patisserie on Lady Lawson Street, Edinburgh" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Preacher's%20Patisserie%2C%2024-26%20Lady%20Lawson%20St%2C%20Edinburgh%2C%20EH3%209DS" target="_blank" rel="noopener">Get directions <svg class="i i--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <ul class="place-notes">
+        <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>A short walk from the Grassmarket, close to the Castle.</span></li>
+        <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1.2 12H7.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>A small room with limited seating. Everything comes in a paper bag to take away.</span></li>
+        <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="17" r="2.5"/><circle cx="18" cy="17" r="2.5"/><path d="M8.5 17h7M14 6h3l3 8M6 14.5V10h7l2.5 4.5"/></svg><p>Also on <a class="link" href="https://deliveroo.co.uk/menu/edinburgh/old-town-and-canongate/preachers-patisserie" target="_blank" rel="noopener">Deliveroo</a> in the Old Town and Canongate.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap grid">
+    <div class="contact__head">
+      <p class="label">Contact</p>
+      <h2 id="contact-title" class="reveal">Got a question?<br>Ring the shop.</h2>
+      <a class="phone-big" href="tel:+447810898476">07810 898476</a>
+    </div>
+    <div class="contact__actions">
+      <a class="btn" href="tel:+447810898476"><span>Call</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.5l1.6 4.2-2.2 1.5a11 11 0 0 0 6.4 6.4l1.5-2.2L20 15.5V19a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4z"/></svg></a>
+      <a class="btn btn--ghost" href="sms:+447810898476?&amp;body=Hello%20Preacher%E2%80%99s%20Patisserie%2C%20I%20have%20a%20quick%20question%3A%20"><span>Send a text</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/></svg></a>
+      <a class="btn btn--ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=Preacher's%20Patisserie%2C%2024-26%20Lady%20Lawson%20St%2C%20Edinburgh%2C%20EH3%209DS" target="_blank" rel="noopener"><span>Directions</span><svg class="i i--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="contact__small">
+      <div class="social">
+        <a href="https://www.instagram.com/preacherspatisserie/" target="_blank" rel="noopener" aria-label="Preacher's Patisserie on Instagram"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.2 6.8h.01"/></svg></a>
+        <a href="https://www.facebook.com/PreachersPatisserie/" target="_blank" rel="noopener" aria-label="Preacher's Patisserie on Facebook"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 21v-7.5H17l.5-3h-3V8.6c0-.9.4-1.6 1.7-1.6h1.5V4.3A15 15 0 0 0 15.4 4c-2.6 0-4 1.5-4 4.2v2.3H9v3h2.4V21"/></svg></a>
+      </div>
+      <span>@preacherspatisserie</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap grid">
+    <div class="footer__brand">
+      <a class="wordmark" href="#top"><b>preacher's</b><span>PATISSERIE</span></a>
+      <p style="margin-top:1rem;max-width:32ch">Home bakery, coffee shop and sandwich bar. Scottish home baking in Edinburgh.</p>
+    </div>
+    <div class="footer__col">
+      <h3>Find us</h3>
+      <span>24-26 Lady Lawson St</span>
+      <span>Edinburgh EH3 9DS</span>
+      <a href="tel:+447810898476">07810 898476</a>
+    </div>
+    <div class="footer__col">
+      <h3>Open</h3>
+      <span>Wednesday–Saturday</span>
+      <span>8 am–2 pm</span>
+    </div>
+    <div class="footer__col">
+      <h3>Follow</h3>
+      <a href="https://www.instagram.com/preacherspatisserie/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/PreachersPatisserie/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="footer__base">
+      <span>© <span data-year>2026</span> Preacher's Patisserie</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<nav class="bar" aria-label="Quick actions">
+  <a href="tel:+447810898476"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.5l1.6 4.2-2.2 1.5a11 11 0 0 0 6.4 6.4l1.5-2.2L20 15.5V19a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4z"/></svg>Call</a>
+  <a href="sms:+447810898476?&amp;body=Hello%20Preacher%E2%80%99s%20Patisserie%2C%20I%20have%20a%20quick%20question%3A%20"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/></svg>Text</a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Preacher's%20Patisserie%2C%2024-26%20Lady%20Lawson%20St%2C%20Edinburgh%2C%20EH3%209DS" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Directions</a>
+</nav>
+
+<script>
+(function(){
+  var d=document, root=d.documentElement;
+
+  /* Year */
+  d.querySelectorAll('[data-year]').forEach(function(el){el.textContent=new Date().getFullYear()});
+
+  /* Header shrink */
+  var header=d.querySelector('.header');
+  var onScroll=function(){header.classList.toggle('is-scrolled',scrollY>24)};
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  /* Menu */
+  var btn=d.querySelector('.menu-btn'), drawer=d.getElementById('drawer');
+  function setMenu(open){
+    btn.setAttribute('aria-expanded',open);drawer.classList.toggle('is-open',open);
+    d.body.classList.toggle('is-locked',open);
+    if(open){var f=drawer.querySelector('a');f&&setTimeout(function(){f.focus()},60)}
+  }
+  btn.addEventListener('click',function(){setMenu(btn.getAttribute('aria-expanded')!=='true')});
+  drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape'&&btn.getAttribute('aria-expanded')==='true'){setMenu(false);btn.focus()}});
+
+  /* Hours: data from business.json */
+  var HOURS={sunday:"Closed",monday:"Closed",tuesday:"Closed",wednesday:"8 am–2 pm",thursday:"8 am–2 pm",friday:"8 am–2 pm",saturday:"8 am–2 pm"};
+  var DAYS=['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+  var NAMES={sunday:'Sunday',monday:'Monday',tuesday:'Tuesday',wednesday:'Wednesday',thursday:'Thursday',friday:'Friday',saturday:'Saturday'};
+
+  function toMin(t,mer){
+    var m=t.match(/(\d{1,2})(?:[:.h](\d{2}))?\s*(am|pm)?/i); if(!m) return null;
+    var h=+m[1], mi=+(m[2]||0), x=(m[3]||mer||'').toLowerCase();
+    if(x==='pm'&&h<12)h+=12; if(x==='am'&&h===12)h=0;
+    return h*60+mi;
+  }
+  function ranges(s){
+    s=String(s||'').replace(/[  ]/g,' ').trim().toLowerCase();
+    if(!s||/closed|fermé/.test(s)) return [];
+    if(/24\s*(hours|h)|open 24/.test(s)) return [[0,1440]];
+    return s.split(/[,;]/).map(function(p){
+      var parts=p.split(/\s*(?:–|—|-|to)\s*/); if(parts.length<2) return null;
+      var endMer=(parts[1].match(/am|pm/)||[])[0], startMer=(parts[0].match(/am|pm/)||[])[0];
+      var b=toMin(parts[1]), a=toMin(parts[0],startMer||endMer);
+      if(a==null||b==null) return null;
+      if(!startMer&&endMer&&a>b&&a-720>=0) a-=720;
+      if(b<=a) b+=1440;
+      return [a,b];
+    }).filter(Boolean);
+  }
+  function fmt(min){
+    min=min%1440; var h=Math.floor(min/60), m=min%60, ap=h<12?'am':'pm', h12=h%12||12;
+    return h12+(m?':'+String(m).padStart(2,'0'):'')+' '+ap;
+  }
+  function londonNow(){
+    try{
+      var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',weekday:'long',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
+      var o={};p.forEach(function(x){o[x.type]=x.value});
+      return {day:DAYS.indexOf(o.weekday.toLowerCase()), min:(+o.hour%24)*60+(+o.minute)};
+    }catch(e){var n=new Date();return {day:n.getDay(),min:n.getHours()*60+n.getMinutes()}}
+  }
+  var now=londonNow(), today=DAYS[now.day], yesterday=DAYS[(now.day+6)%7];
+  var label, open=false, i, r;
+  ranges(HOURS[yesterday]).forEach(function(x){if(x[1]>1440&&now.min<x[1]-1440){open=true;label='Open now · until '+fmt(x[1])}});
+  ranges(HOURS[today]).forEach(function(x){if(!open&&now.min>=x[0]&&now.min<x[1]){open=true;label='Open now · until '+fmt(x[1])}});
+  if(!open){
+    for(i=0;i<8&&!label;i++){
+      r=ranges(HOURS[DAYS[(now.day+i)%7]]);
+      for(var k=0;k<r.length;k++){
+        if(i===0&&r[k][0]<=now.min) continue;
+        label='Closed · opens '+(i===0?'today ':i===1?'tomorrow ':NAMES[DAYS[(now.day+i)%7]]+' ')+fmt(r[k][0]);break;
+      }
+    }
+    label=label||'Closed';
+  }
+  d.querySelectorAll('[data-status]').forEach(function(el){
+    el.textContent=label;el.classList.add(open?'is-open':'is-closed');
+  });
+  var row=d.querySelector('.hours tr[data-day="'+today+'"]'); if(row) row.classList.add('is-today');
+  d.querySelectorAll('.hours tr').forEach(function(tr){if(!ranges(HOURS[tr.dataset.day]).length) tr.classList.add('is-closed')});
+
+  /* Reveal on scroll */
+  var els=d.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    els.forEach(function(el){io.observe(el)});
+  } else els.forEach(function(el){el.classList.add('is-in')});
+})();
+</script>
+<!--sf:preview--><div style="padding:18px 16px;font:13px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;text-align:center;background:#0f0f10;color:#a3a3a8">Preview made by Aymen Jallouli for Preacher's Patisserie: this is not yet the business's official website.</div><!--/sf:preview-->
+<!--sf:track--><script>(function(){try{var q=new URLSearchParams(location.search),r=q.get('r')||sessionStorage.getItem('sf_r');if(!r)return;sessionStorage.setItem('sf_r',r);navigator.sendBeacon("https://track.aymenjallouli.dev/t"+'?r='+encodeURIComponent(r)+'&p='+encodeURIComponent(location.pathname));}catch(e){}})();</script><!--/sf:track-->
+</body>
+</html>
